@@ -1,6 +1,6 @@
 ErrorDocument 404 /httpStatus/4xx/404.html
 
-<files .htaccess>
+<files .htaccess >
 order allow,deny
 deny from all
 </files>
