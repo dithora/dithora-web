@@ -1,2 +1,2 @@
-User-agent: Yandex
-Sitemap: http://dark-soul.space/sitemap.xml
+User-agent: *
+Sitemap: https://dark-soul.space/sitemap.xml
