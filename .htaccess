@@ -1,9 +1,9 @@
 ErrorDocument 404 /httpStatus/4xx/404.html
 
-<Files .htaccess>
+<files .htaccess>
 order allow,deny
 deny from all
-</Files>
+</files>
 
 RewriteCond %{REQUEST_URI} !\?
 RewriteCond %{REQUEST_URI} !\&
