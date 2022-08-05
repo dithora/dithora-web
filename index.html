@@ -27,7 +27,7 @@
 
 
     <!-- Scripts -->
-  <script src="/scr/js/index.js"></script>
+
     <!------------->
 
 
@@ -53,14 +53,23 @@
     <!-- /Yandex.Metrika counter -->
   </head>
 
-
   <body>
+
+<script>
+ const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+      })
+</script>
+
  <section class="showcase">
     <header>
       <h2 class="logo">Travel</h2>
       <div class="toggle"></div>
     </header>
-    <video src="https://traversymedia.com/downloads/videos/explore.mp4" muted loop autoplay></video>
     <div class="overlay"></div>
     <div class="text">
       <h2>Never Stop To </h2> 
@@ -87,14 +96,5 @@
     </ul>
   </div>
 
-<script>
- const menuToggle = document.querySelector('.toggle');
-      const showcase = document.querySelector('.showcase');
-
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        showcase.classList.toggle('active');
-      })
-</script>
 </body>
 </html>
