@@ -27,7 +27,16 @@
 
 
     <!-- Scripts -->
-  <script src="/src/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+ const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+      })
+</script>
     <!------------->
 
 
