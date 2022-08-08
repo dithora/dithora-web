@@ -10,13 +10,7 @@ var discord_id = "580681990240469013";
             //new data since old is depriciated 
             gamedata = data.activities.name;
     
-            if (data.listening_to_spotify) {
-                $("#spotify").html(`<p class="nowplay"><span class="listening"> â— </span>Сейчас слушает: </p>
-          <a class="data" target="_blank" href="https://open.spotify.com/track/${data.spotify.track_id}"<b>${data.spotify.song}</b> 
-          <b>by <i>${data.spotify.artist}</i></b></a>`);
-            } else {
-              $("#spotify").html(`<p class="mainbox"><span class="offline"> â— </span> Сейчас Dark Soul ничего не слушает.</p>`)
-            }
+     
             if (data.discord_status) {
               $("#activen").html(`<h2> Сейчас я ${wtive}</h2>`);
             } else {
