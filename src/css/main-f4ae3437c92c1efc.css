@@ -44,6 +44,18 @@ body {
     text-decoration: none;
 }
 
+#description {
+    color: var(--accentColor);
+    font-size: 3rem;
+    font-family: var(--font);
+    font-weight: bold;
+    line-height: 2.25;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;  
+}
+
 #links {
     max-width: 675px;
     width: auto;
@@ -81,15 +93,7 @@ body {
     color: var(--bgColor);
 }
 
-#hashtag {
-    position: relative;
-    padding-bottom: 20px;
-    color: var(--accentColor);
-    font-size: 1rem;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
+
 
     /*  animation   */
     overflow: hidden;
