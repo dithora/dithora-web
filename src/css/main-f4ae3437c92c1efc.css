@@ -22,7 +22,7 @@ body {
     position: relative;
 }
 
-#profilePicture, #profilePicture img {
+#P_IMG, #P_IMG img {
     position: relative;
     width: 96px;
     height: 96px;
@@ -32,7 +32,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-#userName {
+#USER_NAME {
     color: var(--accentColor);
     font-size: 1rem;
     font-weight: bold;
@@ -44,19 +44,19 @@ body {
     text-decoration: none;
 }
 
-#description {
+#DESC {
     color: var(--accentColor);
-    font-size: 3rem;
+    font-size: 1.25rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 2.25;
+    line-height: 1.75;
     display: block;
     width: 100%;
     text-align: center;
     text-decoration: none;  
 }
 
-#links {
+#BUTTONS_LINK {
     max-width: 675px;
     width: auto;
     display: block;
