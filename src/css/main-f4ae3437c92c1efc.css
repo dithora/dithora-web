@@ -4,6 +4,7 @@
     --bgColor: #223344;
     --bgColor2: #090a0f;
     --accentColor: #FFF;
+    --descColor: #808080;
     --font: 'Karla', sans-serif;
     --delay: .3s;
 }
@@ -45,7 +46,7 @@ body {
 }
 
 #DESC {
-    color: var(--accentColor);
+    color: var(--descColor);
     font-size: 1.25rem;
     font-family: var(--font);
     font-weight: bold;
