@@ -1,5 +1,5 @@
 import React from "react";
-import "././css/app.css";
+import "././css/main-f4ae3437c92c1efc.css";
 import { useTranslation } from "react-i18next";
 
 function App() {
