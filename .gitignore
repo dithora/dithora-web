@@ -1,0 +1,8 @@
+#ssl conf
+production.rb
+#in developing
+public/
+#server settings
+.htaccess 
+#dependency manager for PHP
+composer.json
