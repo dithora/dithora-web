@@ -1,1 +1,6 @@
+#ssl conf
 production.rb
+
+#in developing
+public/
+
