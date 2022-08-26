@@ -35,7 +35,7 @@ body {
 
 #HI {
     color: var(--accentColor);
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: bold;
     line-height: 1.25;
     display: block;
@@ -50,7 +50,7 @@ body {
     font-size: 1.25rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 1.75;
+    line-height: 1.35;
     display: block;
     width: 100%;
     text-align: center;
@@ -59,10 +59,10 @@ body {
 
 #DESC {
     color: var(--descColor);
-    font-size: 1.00rem;
+    font-size: 1.35rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 1.10;
+    line-height: 1.15;
     display: block;
     width: 100%;
     text-align: center;
