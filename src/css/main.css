@@ -59,10 +59,10 @@ body {
 
 #DESC {
     color: var(--descColor);
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 2.00;
+    line-height: 1.00;
     display: block;
     width: 100%;
     text-align: center;
