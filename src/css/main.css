@@ -4,7 +4,7 @@
     --bgColor: #223344;
     --bgColor2: #090a0f;
     --accentColor: #FFF;
-    --descColor: #808080;
+    --descColor: #FFF;
     --font: 'Karla', sans-serif;
     --delay: .3s;
 }
@@ -45,12 +45,24 @@ body {
     text-decoration: none;
 }
 
-#DESC {
+#UN_USNAME {
     color: var(--descColor);
     font-size: 1.25rem;
     font-family: var(--font);
     font-weight: bold;
     line-height: 1.75;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;  
+}
+
+#DESC {
+    color: var(--descColor);
+    font-size: 1.75rem;
+    font-family: var(--font);
+    font-weight: bold;
+    line-height: 2.00;
     display: block;
     width: 100%;
     text-align: center;
