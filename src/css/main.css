@@ -3,8 +3,8 @@
 :root {
     --bgColor: #223344;
     --bgColor2: #090a0f;
-    --accentColor: #A5A5A5;
-    --descColor: #A5A5A5;
+    --accentColor: #FFF;
+    --descColor: #FFF;
     --font: 'Karla', sans-serif;
     --delay: .3s;
 }
