@@ -3,7 +3,7 @@
 :root {
     --bgColor: #223344;
     --bgColor2: #090a0f;
-    --accentColor: #FFF;
+    --accentColor: #A5A5A5;
     --descColor: #FFF;
     --font: 'Karla', sans-serif;
     --delay: .3s;
@@ -59,10 +59,10 @@ body {
 
 #DESC {
     color: var(--descColor);
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 1.00;
+    line-height: 0.70;
     display: block;
     width: 100%;
     text-align: center;
