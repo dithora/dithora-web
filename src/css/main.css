@@ -35,9 +35,9 @@ body {
 
 #HI {
     color: var(--accentColor);
-    font-size: 1.15rem;
+    font-size: 1.50rem;
     font-weight: bold;
-    line-height: 1.25;
+    line-height: 1.40;
     display: block;
     font-family: var(--font);
     width: 100%;
@@ -47,10 +47,10 @@ body {
 
 #UN_USNAME {
     color: var(--descColor);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 1.35;
+    line-height: 1.25;
     display: block;
     width: 100%;
     text-align: center;
@@ -59,10 +59,10 @@ body {
 
 #DESC {
     color: var(--descColor);
-    font-size: 1.35rem;
+    font-size: 1.30rem;
     font-family: var(--font);
     font-weight: bold;
-    line-height: 1.15;
+    line-height: 1.25;
     display: block;
     width: 100%;
     text-align: center;
