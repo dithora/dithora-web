@@ -46,7 +46,7 @@ body {
 
 #UN_USNAME {
     color: var(--descColor);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-family: var(--font);
     font-weight: bold;
     line-height: 1.25;
@@ -58,7 +58,7 @@ body {
 
 #DESC {
     color: var(--descColor);
-    font-size: 1.30rem;
+    font-size: 1.00rem;
     font-family: var(--font);
     font-weight: bold;
     line-height: 1.25;
