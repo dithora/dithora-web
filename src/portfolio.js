@@ -1,5 +1,5 @@
 const header = {
-  homepage: 'https://dark-soul.space',
+  homepage: 'https://dark-soul.space/index.html,
   title: 'Hola!',
 }
 
