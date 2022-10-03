@@ -1,0 +1,46 @@
+<!--
+License CC BY-NC-ND 3.0 - https://dark-soul.space/LICENSE
+-->
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <title>Dark Soul | Info</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Dark Soul"/>
+    <meta name="copyright" lang="ru" content="Dark Soul"/>
+    <meta name="description" content="Информация о Dark Soul"/>
+    <meta name="keywords" content="dark soul, darksoul, дарк соул, дарксуол">
+    <meta name="robots" content="index, nofollow"/>
+    <meta name="yandex" content="noyaca"/>
+    <meta property="og:title" content="Dark Soul" />
+    <meta property="og:url" content="//dark-soul.space/" />
+    <!--------->
+
+    <!-- Favicon -->
+    <!------------>
+
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(89833561, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/89833561" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </head>
+
+  <body>
+    <noscript>Пожалуйста, включите JavaScript, иначе интерактивные элементы сайта окажутся недоступными.  </noscript>
+    <div id="root"></div>
+  </body>
+</html>
