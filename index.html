@@ -13,7 +13,20 @@
     <title>Dark Soul</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Пожалуйста, включите JavaScript, иначе интерактивные элементы сайта окажутся недоступными.</noscript>
+ 
+   <div id='top' className={`${themeName} app`}>
+      <Header />
 
+      <main>
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+
+      <ScrollToTop />
+      <Footer />
+    </div>
   </body>
 </html>
