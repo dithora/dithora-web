@@ -8,9 +8,5 @@ RewriteCond %{SCRIPT_FILENAME}.html -f
 RewriteRule [^/]$ %{REQUEST_URI}.html [QSA,L]
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^(.*)/index\.html$ /$1/ [R=301,L]
-RewriteRule ^ru\.html$ / [R=301,L]
-RewriteRule ^(.*)/ru\.html$ /$1/ [R=301,L]
-RewriteRule ^en\.html$ / [R=301,L]
-RewriteRule ^(.*)/en\.html$ /$1/ [R=301,L]
 
 ErrorDocument 404 /httpStatus/4xx/404.html
