@@ -9,4 +9,8 @@ RewriteRule [^/]$ %{REQUEST_URI}.html [QSA,L]
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^(.*)/index\.html$ /$1/ [R=301,L]
 
+RewriteRule . %1/%2 [L,R=301]
+RewriteCond %{THE_REQUEST} //
+RewriteRule .* /$0 [R=301,L]
+
 ErrorDocument 404 /httpStatus/4xx/404.html
