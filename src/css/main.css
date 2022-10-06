@@ -1030,6 +1030,100 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
   }
 }
 
+
+.als-header-2021-nav-item-lang {
+   margin-left: 10px
+}
+
+.als-header-2021-buttons-search {
+   position: relative;
+   width: 2em
+}
+
+.als-header-2021-buttons-search:before {
+   content: '';
+   width: 1.5em;
+   height: 1.5em;
+   top: .2em;
+   left: .3em;
+   background: url(/svalka/header-2016/v2/images/2021/search.svg) center center no-repeat;
+   background-size: 100% 100%;
+   position: absolute
+}
+
+.als-header-2021-buttons-login {
+   cursor: pointer;
+   position: relative
+}
+
+.als-header-wrap-2021-logged .als-header-2021-buttons-login {
+   width: 2em
+}
+
+.als-header-wrap-2021-logged .als-header-2021-buttons-login:before {
+   content: '';
+   width: 1.1em;
+   height: 1.4em;
+   top: .22em;
+   left: .5em;
+   background: url(/svalka/header-2016/v2/images/2021/user.svg) center center no-repeat;
+   background-size: 100% 100%;
+   position: absolute
+}
+
+@media (max-width:1200px) {
+   .als-header-2021-buttons {
+      margin-top: -54px
+   }
+}
+
+@-webkit-keyframes artlebedevLogoBarcode {
+
+   0%,
+   100%,
+   80% {
+      font-variation-settings: 'wght' 1
+   }
+
+   20%,
+   40%,
+   80% {
+      font-variation-settings: 'wght' 100
+   }
+}
+
+@keyframes artlebedevLogoBarcode {
+
+   0%,
+   100%,
+   80% {
+      font-variation-settings: 'wght' 1
+   }
+
+   20%,
+   40%,
+   80% {
+      font-variation-settings: 'wght' 100
+   }
+}
+
+@media (max-width:1460px) {
+
+   .als-header-2021-nav-item,
+   .als-header-wrap-2021-outer {
+      font-size: 18px
+   }
+
+   .als-header-2021-nav-item:not(.als-header-2021-nav-item-lang):not(.als-header-2021-nav-item-custom) {
+      padding-top: 17px;
+      padding-bottom: 17px
+   }
+
+   .als-header-2021-nav-item:hover {
+      background: 0 0 !important
+   }
+
+
 @media (min-width: 1024px) {
   .projects .grid {
     -ms-grid-columns: (1fr)[3];
