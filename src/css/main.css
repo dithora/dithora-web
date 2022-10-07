@@ -43,6 +43,13 @@
   cursor: pointer
 }
 
+.ch_lang {
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  letter-spacing: 1px;  
+  margin-right: 55vh
+}
+
 .nav__item i:hover {
   color: var(--primary-color)
 }
