@@ -1,0 +1,55 @@
+.fTxgaC {
+	width: 100%;
+	max-width: 100%;
+	margin-top: 2rem;
+	text-align: center;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+/*!sc*/
+.fTxgaC .copyright,
+.fTxgaC .icp,
+.fTxgaC .links {
+	-webkit-letter-spacing: 1px;
+	-moz-letter-spacing: 1px;
+	-ms-letter-spacing: 1px;
+	letter-spacing: 1px;
+	font-size: 0.6rem;
+	opacity: 0.75;
+	margin-bottom: 0.5rem;
+	color: #ccc;
+}
+
+/*!sc*/
+.fTxgaC .copyright a,
+.fTxgaC .icp a,
+.fTxgaC .links a {
+	margin: 0 0.2rem;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #666;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+
+/*!sc*/
+.fTxgaC.body.is-article-visible {
+	-webkit-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	transform: scale(0.95);
+	-webkit-filter: blur(0.1rem);
+	filter: blur(0.1rem);
+	opacity: 0;
+}
+
+/*!sc*/
+.fTxgaC.body.is-loading {
+	opacity: 0;
+}
+
+/*!sc*/
+data-styled.g7[id="Footer__Wrapper-sc-18o08o-0"] {
+	content: "fTxgaC,"
+}
+
+/*!sc*/
