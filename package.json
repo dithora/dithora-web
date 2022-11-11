@@ -1,0 +1,23 @@
+{
+	"name": "react-terminal-portfolio",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "http://darksoul228.github.io/darksoul-profilesite",
+	"dependencies": {
+		"react": "^16.11.0",
+		"react-dom": "^16.11.0",
+		"react-scripts": "3.2.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
