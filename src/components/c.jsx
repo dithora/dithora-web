@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import githubLogo from "../assets/gh32px.png";
 
-export class Cat extends Component {
+export class C extends Component {
 	state = {
 		type: this.props.line.type,
 		value: this.props.line.value
@@ -12,8 +12,8 @@ export class Cat extends Component {
 	};
 
 	information = {
-		about: "  ",
-		corvette: "  ",
+		about: "Im dark-soul.",
+		corvette: " Discord server ",
 		projects: [
 			{
 				projectName: "darksoul",
@@ -95,4 +95,4 @@ export class Cat extends Component {
 	};
 }
 
-export default Cat;
+export default C;
