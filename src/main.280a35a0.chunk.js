@@ -1,4 +1,4 @@
-(this["webpackJsonpreact-terminal-portfolio"] = this["webpackJsonpreact-terminal-portfolio"] || []).push([
+(this["webpackJsonpreact"] = this["webpackJsonpreact"] || []).push([
    [0], {
       11: function (e, t, a) {
          e.exports = a(17)
@@ -101,35 +101,23 @@
                   }, a.style = {
                      align: "middle"
                   }, a.information = {
-                     about: "Aute voluptate qui eiusmod pariatur velit velit fugiat laborum irure veniam. Id labore proident mollit nostrud. Aliqua excepteur Lorem in duis.",
-                     education: "Quis ut voluptate irure est. Ex in velit nisi nostrud occaecat ipsum non quis ea. Ipsum deserunt est amet adipisicing sint nulla quis nostrud. Ullamco enim do incididunt amet elit qui sint excepteur sit irure elit reprehenderit qui excepteur. Laborum ea minim aliquip et laboris aliquip reprehenderit sunt cupidatat pariatur esse do. In sint magna laborum culpa officia cillum ex velit commodo. Laborum adipisicing laboris incididunt nulla aliquip.",
-                     projects: [{
-                        projectName: "p1",
-                        liveDemo: "https://github.com/shloksomani",
-                        linkToGithub: "https://github.com/shloksomani"
-                     }, {
-                        projectName: "p2",
-                        liveDemo: "https://github.com/shloksomani",
-                        linkToGithub: "https://github.com/shloksomani"
-                     }],
-                     social: [{
+                     about: " yep owo ",
+                     corvette: "discord server",                   
+                     links: [{
                         platform: "Github",
-                        link: "https://github.com/shloksomani"
-                     }, {
-                        platform: "Github",
-                        link: "https://github.com/shloksomani"
+                        link: "https://github.com/darksoul228"
                      }]
                   }, a.handelCd = function () {
                      var e = a.state.value.split(" ")[1];
                      if (!e) return i.a.createElement("p", {
                         className: "result"
-                     }, "Opps wrong input");
+                     }, "Wrong input!");
                      var t = e.toLowerCase();
                      return "about" === t ? i.a.createElement("p", {
                         className: "result"
-                     }, a.information.about) : "education" === t ? i.a.createElement("p", {
+                     }, a.information.about) : "corvette" === t ? i.a.createElement("p", {
                         className: "result"
-                     }, a.information.education) : "education" !== t ? "projects" === t || "project" === t ? i.a.createElement(i.a.Fragment, null, a.information.projects.map((function (e) {
+                     }, a.information.education) : "corvette" !== t ? "projects" === t || "project" === t ? i.a.createElement(i.a.Fragment, null, a.information.projects.map((function (e) {
                         return i.a.createElement("p", {
                            className: "result"
                         }, e.projectName, i.a.createElement("a", {
@@ -140,16 +128,16 @@
                            target: "_blank"
                         }, i.a.createElement("img", {
                            src: g.a,
-                           alt: "GithubLink to Code"
+                           alt: "damn.."
                         })))
-                     }))) : "socials" === t || "social" === t || "contact me" === t || "contactme" === t || "contact_me" === t ? i.a.createElement(i.a.Fragment, null, a.information.social.map((function (e) {
+                     }))) : "links" === t || "link" === t || "LINKS" === t || "LINK" === t || "Link" === t ? i.a.createElement(i.a.Fragment, null, a.information.social.map((function (e) {
                         return i.a.createElement("p", {
                            className: "result"
                         }, i.a.createElement("a", {
                            href: e.link,
                            target: "_blank"
                         }, e.platform), i.a.createElement("a", {
-                           href: "https://github.com/shloksomani",
+                           href: "https://github.com/darksoul228",
                            target: "_blank"
                         }, i.a.createElement("img", {
                            src: g.a,
@@ -157,7 +145,7 @@
                         })))
                      }))) : i.a.createElement("p", {
                         className: "result"
-                     }, "Opps wrong input") : void 0
+                     }, "Wrong input!") : void 0
                   }, a
                }
                return Object(h.a)(t, e), Object(u.a)(t, [{
@@ -206,35 +194,29 @@
                      type: "line"
                   }]
                }, a.information = {
-                  name: "dummy_name",
+                  name: "dark soul",
                   commands: [{
                      id: 10,
                      type: "ls"
                   }, {
                      id: 11,
-                     type: "cat"
+                     type: "c"
                   }, {
                      id: 12,
                      type: "clear"
                   }, {
                      id: 13,
-                     type: "cmd"
+                     type: "help"
                   }],
                   subDir: [{
                      id: 14,
-                     type: "About.txt"
+                     type: "about.txt"
                   }, {
                      id: 15,
-                     type: "Education.txt"
-                  }, {
-                     id: 16,
-                     type: "Projects.txt"
+                     type: "corvette.txt"
                   }, {
                      id: 17,
-                     type: "Socials.txt"
-                  }, {
-                     id: 18,
-                     type: "Contact_Me.txt"
+                     type: "links.txt"
                   }]
                }, a.handelWhatever = function (e, t) {
                   var n = e.split(" ");
@@ -291,11 +273,11 @@
                         key: t.id,
                         line: t,
                         subDir: e.information.subDir
-                     }) : "cmd" === t.type ? i.a.createElement(b, {
+                     }) : "help" === t.type ? i.a.createElement(b, {
                         key: t.id,
                         line: t,
                         subDir: e.information.commands
-                     }) : "cat" === t.type ? i.a.createElement(v, {
+                     }) : "c" === t.type ? i.a.createElement(v, {
                         key: t.id,
                         line: t
                      }) : void 0
