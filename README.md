@@ -1,9 +1,15 @@
-This is a repo to host source files of my personal website.<br>The content of all pages is licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/), [legal text license](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
+# Dark Soul Website
+<!-- Markdown snippet -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/beeb7e86-4485-4381-8529-6b2a92df5dd7/deploy-status)](https://app.netlify.com/sites/darksoul/deploys)
 
-To build the website locally, you must clone this repo with,
+## Getting started
 
+``` bash
+$ git clone https://github.com/darksoul228/darksoul-profilesite.git
+$ cd darksoul-profilesite
 ```
-git clone https://github.com/darksoul228/darksoul-profilesite.git
-```
 
-I don't recommend you to study how my website is built, because it is complicated. In particular, the way I manage images is fairly complicated.
+## License
+
+[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+[LegalText](https://creativecommons.org/licenses/by-nd/4.0/legalcode)
