@@ -6,7 +6,6 @@
 
 ``` bash
 $ git clone https://github.com/darksoul228/darksoul-profilesite.git
-```
-``` bash
+
 $ cd darksoul-profilesite
 ```
