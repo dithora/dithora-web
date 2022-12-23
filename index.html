@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/cookies.css">
     <script src="src/bundle.min.js"></script>
-    <script>let container; let apply; const who = () => document.querySelector(".warning"); const findElements = () => { container = document.querySelector(".warning"); apply = container.querySelector(".warning__apply"); }; const hideContainer = () => { container.classList.remove("warning--active"); }; const setCookie = () => { document.cookie = "warning=true; max-age=2592000; path=/"; }; const onClick = (event) => { event.preventDefault(); hideContainer(); setCookie(); }; const subscribe = () => { apply.addEventListener("click", onClick); }; const init = () => { if (!who()) { return; } findElements(); subscribe(); }; init(); ;</script>
+    <script>let container; let apply; const who = () => document.querySelector(".warning"); const findElements = () => { container = document.querySelector(".warning"); apply = container.querySelector(".warning__apply"); }; const hideContainer = () => { container.classList.remove("warning--active"); }; const setCookie = () => { document.cookie = "warning=true; max-age=2592000; path=index.html"; }; const onClick = (event) => { event.preventDefault(); hideContainer(); setCookie(); }; const subscribe = () => { apply.addEventListener("click", onClick); }; const init = () => { if (!who()) { return; } findElements(); subscribe(); }; init(); ;</script>
  </head>
   <body class="pink">
     <div class="container headings--one-size">
@@ -77,7 +77,7 @@
     </div>
        
         <div class="warning warning--active">
-	<div class="warning__text">На этом веб-сайте используются cookie, <a href="cookies-ru.html">зачем мы собираем cookie?</a></div>
+	<div class="warning__text">На этом веб-сайте используются cookie, <a href="cookie-ru.html">зачем мы собираем cookie?</a></div>
 	<button class="warning__apply" type="button">OK</button>
                
                 </div>
