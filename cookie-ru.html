@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+   <title>Dark Soul - Home</title>
+
+    <!-- META -->
+    <meta name="generator" content="Hugo 0.101.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="undefined">
+    <meta property="og:locale" content="ru">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dark Soul - About Cookie">
+    <meta property="og:description" content="undefined">
+    <meta property="og:url" content="/">
+    <meta property="og:site_name" content="Dark Soul - About Cookie">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="pub/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="pub/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="pub/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="pub/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="pub/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="pub/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="pub/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="pub/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pub/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="pub/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="pub/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="pub/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="pub/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- SOURCE -->
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/cookies.css">
+    <script src="src/bundle.min.js"></script>
+    <script>let container; let apply; const who = () => document.querySelector(".warning"); const findElements = () => { container = document.querySelector(".warning"); apply = container.querySelector(".warning__apply"); }; const hideContainer = () => { container.classList.remove("warning--active"); }; const setCookie = () => { document.cookie = "warning=true; max-age=2592000; path=/"; }; const onClick = (event) => { event.preventDefault(); hideContainer(); setCookie(); }; const subscribe = () => { apply.addEventListener("click", onClick); }; const init = () => { if (!who()) { return; } findElements(); subscribe(); }; init(); ;</script>
+ </head>
+  <body class="pink">
+    <div class="container headings--one-size">
+      <header class="header">
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="index.html">
+              <div class="logo">
+                Dark Soul 
+              </div>
+            </a>
+          </div>
+          <ul class="menu menu--mobile">
+            <li class="menu__trigger"><a href="cookie-en.html" style="color:#ee72f1; text-decoration:none">EN</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="content">
+        <article class="post">
+          <h1 class="post-title">
+            <a href="cookie-ru.html">Зачем нам нужны ваши Cookie?</a>
+          </h1>
+          <div class="post-meta">
+          </div>
+          <div class="post-content">
+            <div>
+<p>Что такое cookie? Это фрагменты данных с информацией о ваших действиях на сайте. Веб-сервер или скрипт создаёт cookie и отправляет вашему браузеру. А потом браузер выдаёт их обратно при пользовании сайтом. То есть cookie хранятся на вашем устройстве, а мы их по необходимости используем. </p>
+<p>А зачем они нужны? Cookie нужны для того, чтобы мы могли подстроить сайт под вас. Мы используем cookie для сбора статистики. </p>
+<p>А если я отключю cookie? На нашем сайте это не будет заметно, но некоторые элементы могут перестать отображаться корректно. </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+       
+        <div class="warning warning--active">
+	<div class="warning__text">На этом веб-сайте используются cookie, <a href="/cookies-ru">зачем мы собираем cookie?</a></div>
+	<button class="warning__apply" type="button">OK</button>
+               
+                </div>
+            </div>
+     </footer>
+  </body>
+</html>
