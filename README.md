@@ -8,3 +8,7 @@
 $ git clone https://github.com/darksoul228/darksoul-profilesite.git
 $ cd darksoul-profilesite
 ```
+
+``` bash
+$ cd darksoul-profilesite
+```
