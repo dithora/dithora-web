@@ -9,5 +9,5 @@ $ git clone https://github.com/darksoul228/darksoul-profilesite.git
 
 $ cd darksoul-profilesite
 ```
-##How crate Favicon?
-You can easily and quickly create it here: https://www.favicon-generator.org/
+## How crate Favicon?
+You can easily and quickly create it here: https://www.favicon-generator.org
