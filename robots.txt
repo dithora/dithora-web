@@ -1,4 +1,5 @@
 # See: https://yandex.ru/support/webmaster/controlling-robot/robots-txt.html
 User-agent: *
-Disallow: 
+Disallow: /license
+Disallow: /blog
 Sitemap: https://dark-soul.space/sitemap.xml
