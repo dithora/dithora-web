@@ -1,4 +1,4 @@
-# Dark Soul Website
+# Dark Soul Website 
 <!-- Markdown snippet -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/beeb7e86-4485-4381-8529-6b2a92df5dd7/deploy-status)](https://app.netlify.com/sites/darksoul/deploys)
 [![Discord](https://img.shields.io/discord/810444719356248064?label=Discord&style=flat-square)](https://discord.gg/PunMqQRNFv)
@@ -13,7 +13,7 @@ Make sure you have [git](https://git-scm.com/) installed.
 
 - Clone the repo:
 
-  ``` bash
+  ```bash
   $ git clone https://github.com/darksoul228/darksoul-profilesite.git
   $ cd darksoul-profilesite
   ```
