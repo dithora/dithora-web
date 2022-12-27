@@ -17,3 +17,5 @@ Make sure you have [git](https://git-scm.com/) installed.
   $ git clone https://github.com/darksoul228/darksoul-profilesite.git
   $ cd darksoul-profilesite
   ```
+## And
+Site deployed on [Netlify](https://www.netlify.com)
