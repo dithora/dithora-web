@@ -1,6 +1,7 @@
 :root {
 	--phoneWidth: (max-width: 600px);
-	--tabletWidth: (max-width: 900px)
+	--tabletWidth: (max-width: 900px);
+        --color-primary: #FF97BB
 }
 
 @font-face {
@@ -39,8 +40,8 @@ a.button {
 	text-decoration: none;
 	text-align: center;
 	border-radius: 0;
-	border: 1px solid #F19CBB;
-	background: #F19CBB;
+	border: 1px solid var(--color-primary);
+	background: var(--color-primary);
 	font: inherit;
 	font-weight: bold;
 	appearance: none;
@@ -51,7 +52,7 @@ a.button {
 button:hover,
 .button:hover,
 a.button:hover {
-	background: #F19CBB
+	background: var(--color-primary);
 }
 
 button.outline,
@@ -94,7 +95,7 @@ a.read-more:hover,
 a.read-more:active {
 	display: inline-flex;
 	border: none;
-	color: #F19CBB;
+	color: var(--color-primary);
 	background: none;
 	box-shadow: none;
 	padding: 0;
@@ -128,8 +129,8 @@ input,
 textarea,
 select {
 	background: transparent;
-	color: #F19CBB;
-	border: 1px solid #F19CBB;
+	color: var(--color-primary);
+	border: 1px solid var(--color-primary);
 	border-radius: 0;
 	padding: 10px;
 	font: inherit;
@@ -161,7 +162,7 @@ select option {
 }
 
 ::placeholder {
-	color: color-mod(#F19CBB) a(50%)
+	color: color-mod(var(--color-primary)) a(50%)
 }
 
 .header {
@@ -189,7 +190,7 @@ select option {
 
 .header__logo:after {
 	content: '';
-	background: repeating-linear-gradient(90deg, #F19CBB, #F19CBB 2px, transparent 0, transparent 10px);
+	background: repeating-linear-gradient(90deg, var(--color-primary), var(--color-primary) 2px, transparent 0, transparent 10px);
 	display: block;
 	width: 100%;
 	right: 10px
@@ -260,7 +261,7 @@ select option {
 
 .menu__trigger {
 	margin-right: 0 !important;
-	color: #F19CBB;
+	color: var(--color-primary);
 	user-select: none;
 	cursor: pointer
 }
@@ -305,7 +306,7 @@ select option {
 }
 
 .menu--mobile .menu__trigger {
-	color: #F19CBB;
+	color: var(--color-primary);
 	border: 2px solid;
 	margin-left: 10px;
 	height: 100%;
@@ -338,7 +339,7 @@ select option {
 }
 
 .menu--language-selector .menu__trigger {
-	color: #F19CBB;
+	color: var(--color-primary);
 	border: 2px solid;
 	margin-left: 10px;
 	height: 100%;
@@ -363,7 +364,7 @@ select option {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	background: #F19CBB;
+	background: var(--color-primary);
 	color: black;
 	padding: 5px 10px
 }
@@ -480,7 +481,7 @@ figure figcaption {
 	font-size: 14px;
 	padding: 5px 10px;
 	margin-top: 5px;
-	background: #F19CBB;
+	background: var(--color-primary);
 	color: #21202c
 }
 
@@ -500,8 +501,8 @@ code,
 kbd {
 	font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
 	font-feature-settings: normal;
-	background: color-mod(#F19CBB) a(20%);
-	color: #F19CBB;
+	background: color-mod(var(--color-primary)) a(20%);
+	color: var(--color-primary);
 	padding: 1px 6px;
 	margin: 0 2px;
 	font-size: .95rem
@@ -547,8 +548,8 @@ pre code {
 }
 
 blockquote {
-	border-top: 1px solid #F19CBB;
-	border-bottom: 1px solid #F19CBB;
+	border-top: 1px solid var(--color-primary);
+	border-bottom: 1px solid var(--color-primary);
 	margin: 40px 0;
 	padding: 25px
 }
@@ -576,15 +577,15 @@ blockquote p:first-of-type:before {
 	display: block;
 	position: absolute;
 	left: -25px;
-	color: #F19CBB
+	color: var(--color-primary)
 }
 
 blockquote.twitter-tweet {
 	position: relative;
-	background: color-mod(#F19CBB) a(10%);
+	background: color-mod(var(--color-primary)) a(10%);
 	font: inherit;
 	color: inherit;
-	border: 1px solid #F19CBB;
+	border: 1px solid var(--color-primary);
 	padding-top: 60px
 }
 
@@ -596,12 +597,12 @@ blockquote.twitter-tweet:before {
 	content: '> From Twitter:';
 	position: absolute;
 	top: 20px;
-	color: #F19CBB;
+	color: var(--color-primary);
 	font-weight: bold
 }
 
 blockquote.twitter-tweet a {
-	color: #F19CBB
+	color:var(--color-primary)
 }
 
 table {
@@ -614,12 +615,12 @@ table {
 table,
 th,
 td {
-	border: 1px dashed #F19CBB;
+	border: 1px dashed var(--color-primary);
 	padding: 10px
 }
 
 th {
-	color: #F19CBB
+	color: var(--color-primary)
 }
 
 ul,
@@ -654,7 +655,7 @@ ol li:before {
 	content: counter(li);
 	position: absolute;
 	right: calc(100% + 10px);
-	color: #F19CBB;
+	color: var(--color-primary);
 	display: inline-block;
 	text-align: right
 }
@@ -672,7 +673,7 @@ ol ol li:before {
 }
 
 mark {
-	background: #F19CBB;
+	background: var(--color-primary);
 	color: #21202c
 }
 
@@ -738,7 +739,7 @@ sup {
 }
 
 .framed {
-	border: 1px solid #F19CBB;
+	border: 1px solid var(--color-primary);
 	padding: 20px
 }
 
@@ -768,15 +769,15 @@ sup {
 .post-meta {
 	font-size: 1rem;
 	margin-bottom: 10px;
-	color: opcift(#F19CBB, 70%)
+	color: opcift(var(--color-primary), 70%)
 }
 
 .post-title {
 	position: relative;
-	color: #F19CBB;
+	color: var(--color-primary);
 	margin: 0 0 15px;
 	padding-bottom: 15px;
-	border-bottom: 3px dotted #F19CBB
+	border-bottom: 3px dotted var(--color-primary)
 }
 
 .post-title:after {
@@ -785,7 +786,7 @@ sup {
 	bottom: 2px;
 	display: block;
 	width: 100%;
-	border-bottom: 3px dotted #F19CBB
+	border-bottom: 3px dotted var(--color-primary)
 }
 
 .post-title a {
@@ -808,7 +809,7 @@ sup {
 }
 
 .post-cover {
-	border: 20px solid #F19CBB;
+	border: 20px solid var(--color-primary);
 	background: transparent;
 	margin: 40px 0;
 	padding: 20px
@@ -829,7 +830,7 @@ sup {
 	content: '-';
 	position: absolute;
 	left: -20px;
-	color: #F19CBB
+	color: var(--color-primary)
 }
 
 .post--regulation h1 {
@@ -847,7 +848,7 @@ sup {
 }
 
 .hanchor {
-	color: #F19CBB;
+	color: var(--color-primary);
 	text-decoration: none;
 	margin-left: 10px;
 	visibility: hidden
@@ -1342,7 +1343,7 @@ code.language-scss,
 .token.number,
 .token.inserted,
 .token.important {
-	color: #F19CBB !important
+	color: var(--color-primary) !important
 }
 
 .token.tag-id,
@@ -1359,7 +1360,7 @@ code.language-scss,
 .token.class-name,
 .token.constant,
 .token.symbol {
-	color: #F19CBB !important
+	color: var(--color-primary) !important
 }
 
 .token.property,
@@ -1518,7 +1519,7 @@ pre[class*="language-"] {
 
 .collapsable-code__title {
 	flex: 1;
-	color: #F19CBB;
+	color: var(--color-primary);
 	padding: 3px 10px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -1526,7 +1527,7 @@ pre[class*="language-"] {
 }
 
 .collapsable-code__language {
-	color: #F19CBB;
+	color: var(--color-primary);
 	border: 1px solid #e676e8;
 	border-bottom: none;
 	text-transform: uppercase;
@@ -1534,7 +1535,7 @@ pre[class*="language-"] {
 }
 
 .collapsable-code__toggle {
-	color: #F19CBB;
+	color: var(--color-primary);
 	font-size: 16px;
 	padding: 3px 10px
 }
@@ -1556,7 +1557,7 @@ pre[class*="language-"] {
 }
 
 .terms h1 {
-	color: #F19CBB
+	color: var(--color-primary)
 }
 
 .terms h3 {
