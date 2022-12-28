@@ -15,7 +15,7 @@ Make sure you have [git](https://git-scm.com/) installed.
 
   ```bash
   $ git clone https://github.com/darksoul228/darksoul-profilesite.git
-  $ cd darksoul-profilesite
   ```
+`If you don't have Git installed or you don't like using the terminal then you can download the [zip]() and extract that and open the extracted folder in the code editor of your your choice.`
 ## Hosting 
 Site deployed on [Netlify](https://www.netlify.com)
