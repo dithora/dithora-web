@@ -1,7 +1,7 @@
 :root {
 	--phoneWidth: (max-width: 600px);
 	--tabletWidth: (max-width: 900px);
-        --color-primary: #FF97BB
+        --color-primary: #FFCBDB
 }
 
 @font-face {
