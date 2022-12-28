@@ -39,8 +39,8 @@ a.button {
 	text-decoration: none;
 	text-align: center;
 	border-radius: 0;
-	border: 1px solid #EE72F1;
-	background: #EE72F1;
+	border: 1px solid #F19CBB;
+	background: #F19CBB;
 	font: inherit;
 	font-weight: bold;
 	appearance: none;
@@ -51,7 +51,7 @@ a.button {
 button:hover,
 .button:hover,
 a.button:hover {
-	background: #ee72f1
+	background: #F19CBB
 }
 
 button.outline,
@@ -94,7 +94,7 @@ a.read-more:hover,
 a.read-more:active {
 	display: inline-flex;
 	border: none;
-	color: #EE72F1;
+	color: #F19CBB;
 	background: none;
 	box-shadow: none;
 	padding: 0;
@@ -128,8 +128,8 @@ input,
 textarea,
 select {
 	background: transparent;
-	color: #EE72F1;
-	border: 1px solid #EE72F1;
+	color: #F19CBB;
+	border: 1px solid #F19CBB;
 	border-radius: 0;
 	padding: 10px;
 	font: inherit;
@@ -161,7 +161,7 @@ select option {
 }
 
 ::placeholder {
-	color: color-mod(#EE72F1) a(50%)
+	color: color-mod(#F19CBB) a(50%)
 }
 
 .header {
@@ -189,7 +189,7 @@ select option {
 
 .header__logo:after {
 	content: '';
-	background: repeating-linear-gradient(90deg, #EE72F1, #EE72F1 2px, transparent 0, transparent 10px);
+	background: repeating-linear-gradient(90deg, #F19CBB, #F19CBB 2px, transparent 0, transparent 10px);
 	display: block;
 	width: 100%;
 	right: 10px
@@ -260,7 +260,7 @@ select option {
 
 .menu__trigger {
 	margin-right: 0 !important;
-	color: #EE72F1;
+	color: #F19CBB;
 	user-select: none;
 	cursor: pointer
 }
@@ -305,7 +305,7 @@ select option {
 }
 
 .menu--mobile .menu__trigger {
-	color: #EE72F1;
+	color: #F19CBB;
 	border: 2px solid;
 	margin-left: 10px;
 	height: 100%;
@@ -338,7 +338,7 @@ select option {
 }
 
 .menu--language-selector .menu__trigger {
-	color: #EE72F1;
+	color: #F19CBB;
 	border: 2px solid;
 	margin-left: 10px;
 	height: 100%;
@@ -363,7 +363,7 @@ select option {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	background: #EE72F1;
+	background: #F19CBB;
 	color: black;
 	padding: 5px 10px
 }
@@ -480,7 +480,7 @@ figure figcaption {
 	font-size: 14px;
 	padding: 5px 10px;
 	margin-top: 5px;
-	background: #EE72F1;
+	background: #F19CBB;
 	color: #21202c
 }
 
@@ -500,8 +500,8 @@ code,
 kbd {
 	font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
 	font-feature-settings: normal;
-	background: color-mod(#EE72F1) a(20%);
-	color: #EE72F1;
+	background: color-mod(#F19CBB) a(20%);
+	color: #F19CBB;
 	padding: 1px 6px;
 	margin: 0 2px;
 	font-size: .95rem
@@ -547,8 +547,8 @@ pre code {
 }
 
 blockquote {
-	border-top: 1px solid #EE72F1;
-	border-bottom: 1px solid #EE72F1;
+	border-top: 1px solid #F19CBB;
+	border-bottom: 1px solid #F19CBB;
 	margin: 40px 0;
 	padding: 25px
 }
@@ -576,15 +576,15 @@ blockquote p:first-of-type:before {
 	display: block;
 	position: absolute;
 	left: -25px;
-	color: #EE72F1
+	color: #F19CBB
 }
 
 blockquote.twitter-tweet {
 	position: relative;
-	background: color-mod(#EE72F1) a(10%);
+	background: color-mod(#F19CBB) a(10%);
 	font: inherit;
 	color: inherit;
-	border: 1px solid #EE72F1;
+	border: 1px solid #F19CBB;
 	padding-top: 60px
 }
 
@@ -596,12 +596,12 @@ blockquote.twitter-tweet:before {
 	content: '> From Twitter:';
 	position: absolute;
 	top: 20px;
-	color: #EE72F1;
+	color: #F19CBB;
 	font-weight: bold
 }
 
 blockquote.twitter-tweet a {
-	color: #EE72F1
+	color: #F19CBB
 }
 
 table {
@@ -614,12 +614,12 @@ table {
 table,
 th,
 td {
-	border: 1px dashed #EE72F1;
+	border: 1px dashed #F19CBB;
 	padding: 10px
 }
 
 th {
-	color: #EE72F1
+	color: #F19CBB
 }
 
 ul,
@@ -654,7 +654,7 @@ ol li:before {
 	content: counter(li);
 	position: absolute;
 	right: calc(100% + 10px);
-	color: #EE72F1;
+	color: #F19CBB;
 	display: inline-block;
 	text-align: right
 }
@@ -672,7 +672,7 @@ ol ol li:before {
 }
 
 mark {
-	background: #EE72F1;
+	background: #F19CBB;
 	color: #21202c
 }
 
@@ -738,7 +738,7 @@ sup {
 }
 
 .framed {
-	border: 1px solid #EE72F1;
+	border: 1px solid #F19CBB;
 	padding: 20px
 }
 
@@ -768,15 +768,15 @@ sup {
 .post-meta {
 	font-size: 1rem;
 	margin-bottom: 10px;
-	color: opcift(#EE72F1, 70%)
+	color: opcift(#F19CBB, 70%)
 }
 
 .post-title {
 	position: relative;
-	color: #EE72F1;
+	color: #F19CBB;
 	margin: 0 0 15px;
 	padding-bottom: 15px;
-	border-bottom: 3px dotted #EE72F1
+	border-bottom: 3px dotted #F19CBB
 }
 
 .post-title:after {
@@ -785,7 +785,7 @@ sup {
 	bottom: 2px;
 	display: block;
 	width: 100%;
-	border-bottom: 3px dotted #EE72F1
+	border-bottom: 3px dotted #F19CBB
 }
 
 .post-title a {
@@ -808,7 +808,7 @@ sup {
 }
 
 .post-cover {
-	border: 20px solid #EE72F1;
+	border: 20px solid #F19CBB;
 	background: transparent;
 	margin: 40px 0;
 	padding: 20px
@@ -829,7 +829,7 @@ sup {
 	content: '-';
 	position: absolute;
 	left: -20px;
-	color: #EE72F1
+	color: #F19CBB
 }
 
 .post--regulation h1 {
@@ -847,7 +847,7 @@ sup {
 }
 
 .hanchor {
-	color: #ee72f1;
+	color: #F19CBB;
 	text-decoration: none;
 	margin-left: 10px;
 	visibility: hidden
@@ -1342,7 +1342,7 @@ code.language-scss,
 .token.number,
 .token.inserted,
 .token.important {
-	color: #EE72F1 !important
+	color: #F19CBB !important
 }
 
 .token.tag-id,
@@ -1359,7 +1359,7 @@ code.language-scss,
 .token.class-name,
 .token.constant,
 .token.symbol {
-	color: #ee72f1 !important
+	color: #F19CBB !important
 }
 
 .token.property,
@@ -1518,7 +1518,7 @@ pre[class*="language-"] {
 
 .collapsable-code__title {
 	flex: 1;
-	color: #EE72F1;
+	color: #F19CBB;
 	padding: 3px 10px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -1526,7 +1526,7 @@ pre[class*="language-"] {
 }
 
 .collapsable-code__language {
-	color: #EE72F1;
+	color: #F19CBB;
 	border: 1px solid #e676e8;
 	border-bottom: none;
 	text-transform: uppercase;
@@ -1534,7 +1534,7 @@ pre[class*="language-"] {
 }
 
 .collapsable-code__toggle {
-	color: #EE72F1;
+	color: #F19CBB;
 	font-size: 16px;
 	padding: 3px 10px
 }
@@ -1556,7 +1556,7 @@ pre[class*="language-"] {
 }
 
 .terms h1 {
-	color: #EE72F1
+	color: #F19CBB
 }
 
 .terms h3 {
