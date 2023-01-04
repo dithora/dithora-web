@@ -2,10 +2,10 @@
 <!-- Markdown snippet -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/beeb7e86-4485-4381-8529-6b2a92df5dd7/deploy-status)](https://app.netlify.com/sites/darksoul/deploys)
 [![Discord](https://img.shields.io/discord/810444719356248064?label=Discord&style=flat-square)](https://discord.gg/PunMqQRNFv)
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/80x15.png" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/80x15.png"/></a>
 
 ## Preview
-![https://dark-soul.space](pub/download.png)
+![https://dark-soul.space](pub/Screenshot_1.png)
 
 ## How to run locally?
 
