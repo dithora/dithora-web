@@ -2,4 +2,5 @@
 User-agent: *
 Disallow: /404
 Disallow: /rickrolling
+Disallow: /cookie-ru
 Sitemap: https://dark-soul.space/sitemap.xml
