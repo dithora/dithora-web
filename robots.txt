@@ -1,6 +1,5 @@
 # See: https://yandex.ru/support/webmaster/controlling-robot/robots-txt.html
 User-agent: *
 Disallow: /404
-Disallow: /rickrolling
-Disallow: /cookie-ru
+Disallow: /en
 Sitemap: https://dark-soul.space/sitemap.xml
