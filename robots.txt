@@ -2,4 +2,6 @@
 User-agent: *
 Disallow: /404
 Disallow: /en
+Disallow: /ua
+Disallow: /cn
 Sitemap: https://dark-soul.space/sitemap.xml
