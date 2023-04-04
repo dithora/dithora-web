@@ -239,6 +239,31 @@
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } } k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(89833561, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script> <noscript> <div><img src="https://mc.yandex.ru/watch/89833561" style="position:absolute; left:-9999px;" alt="" /></div> </noscript> 
 
+<body>
+  <div id="__next">
+    <script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script>
+    <article class="nx-container nx-prose-sm dark:nx-prose-dark md:nx-prose" dir="ltr">
+       <h1><script>const name = document.querySelector('name');title.innerHTML = translate('name');</script></h1>
+       <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
+         <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3"><span class="nx-cursor-default nx-text-gray-400">RU</span><a href="en">EN</a><a href="ua">UA</a><a href="cn">CN</a></div>
+          <span role="button" aria-label="Toggle Dark Mode" class="nx-cursor-pointer nx-p-2 nx-text-current" tabindex="0">
+             <svg fill="none" viewBox="3 3 18 18" width="12" height="12" stroke="currentColor">
+
+             </svg>
+          </span>
+       </div>
+       <p><script>const desc_home = document.querySelector('desc_home');title.innerHTML = translate('desc_home');</script></p>
+       <p><script>const desc_base = document.querySelector('desc_base');title.innerHTML = translate('desc_base');</script></p>
+       <footer>
+          <hr/>
+          <section class="legends">
+             <nav><a href="https://discordapp.com/users/580681990240469013" target="_blank" rel="noreferrer">Discord</a><span> · </span><a href="https://github.com/dithora" target="_blank" rel="noreferrer">GitHub</a><span> · </span><a href="credits" target="_blank" rel="noreferrer">Credits</a></nav>
+             <aside></aside>
+          </section>
+          
+       </footer>
+    </article>
+ </div>
   <script>const getUserLanguage = () => {
     // Проверка наличия настроек языка пользователя в localStorage
     if (localStorage.getItem('lang')) {
@@ -270,32 +295,5 @@
     .catch(error => console.error(`Failed to load localizations: ${error}`));
 </script>
 </head>
-
-<body>
-  <div id="__next">
-    <script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script>
-    <article class="nx-container nx-prose-sm dark:nx-prose-dark md:nx-prose" dir="ltr">
-       <h1><script>const name = document.querySelector('name');title.innerHTML = translate('name');</script></h1>
-       <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
-         <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3"><span class="nx-cursor-default nx-text-gray-400">RU</span><a href="en">EN</a><a href="ua">UA</a><a href="cn">CN</a></div>
-          <span role="button" aria-label="Toggle Dark Mode" class="nx-cursor-pointer nx-p-2 nx-text-current" tabindex="0">
-             <svg fill="none" viewBox="3 3 18 18" width="12" height="12" stroke="currentColor">
-
-             </svg>
-          </span>
-       </div>
-       <p><script>const desc_home = document.querySelector('desc_home');title.innerHTML = translate('desc_home');</script></p>
-       <p><script>const desc_base = document.querySelector('desc_base');title.innerHTML = translate('desc_base');</script></p>
-       <footer>
-          <hr/>
-          <section class="legends">
-             <nav><a href="https://discordapp.com/users/580681990240469013" target="_blank" rel="noreferrer">Discord</a><span> · </span><a href="https://github.com/dithora" target="_blank" rel="noreferrer">GitHub</a><span> · </span><a href="credits" target="_blank" rel="noreferrer">Credits</a></nav>
-             <aside></aside>
-          </section>
-          
-       </footer>
-    </article>
- </div>
-
 </body>
 </html>
