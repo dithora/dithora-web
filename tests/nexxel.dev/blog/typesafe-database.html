@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- global metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="../favicon.ico">
+    <meta name="generator" content="Astro v2.5.0">
+
+    <!-- primary meta tags -->
+    <title>Typesafe Database Queries on the Edge</title>
+    <meta name="title" content="Typesafe Database Queries on the Edge">
+    <meta name="description" content="Edge computing is all the rage. Learn how to get typesafe access to data on the edge using Kysely, Prisma and PlanetScale.">
+
+    <!-- open graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Shoubhit Dash">
+    <meta property="og:url" content="https://www.nexxel.dev/blog/typesafe-database/">
+    <meta property="og:title" content="Typesafe Database Queries on the Edge">
+    <meta property="og:description" content="Edge computing is all the rage. Learn how to get typesafe access to data on the edge using Kysely, Prisma and PlanetScale.">
+    <meta property="og:image" content="https://og.nxl.sh/blog/?title=Typesafe Database Queries on the Edge&#38;top=Nov 12, 2022">
+
+    <!-- twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.nexxel.dev/blog/typesafe-database/">
+    <meta property="twitter:title" content="Typesafe Database Queries on the Edge">
+    <meta property="twitter:description" content="Edge computing is all the rage. Learn how to get typesafe access to data on the edge using Kysely, Prisma and PlanetScale.">
+    <meta property="twitter:image" content="https://og.nxl.sh/blog/?title=Typesafe Database Queries on the Edge&#38;top=Nov 12, 2022">
+
+    <!-- link tags -->
+    <link rel="sitemap" href="../sitemap-index.xml">
+    <link rel="preload" href="../fonts/Switzer.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="../fonts/Hack.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../_astro/404.b68b4b81.css" /><link rel="stylesheet" href="../_astro/Code.vue_vue_type_style_index_0_lang.385144bd.css" /></head>
+
+  <body>
+    <div class="mx-auto max-w-container px-4">
+
+      <header class="h-37.5px flex items-center justify-between -mt-2">
+        
+          <a href="../blog.html" target="_self" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->← back<!--]--></a>
+        
+      </header>
+
+      
+  <div class="prose tracking-wide">
+    
+
+    <h1 class="mt-8">Typesafe Database Queries on the Edge</h1>
+      <h2 data-hk="0-0-0-0" id="what-is-the-edge" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#what-is-the-edge">What is the Edge?</a></h2>
+<p>Edge computing is the new hottest thing in the web dev ecosystem, and rightfully so. If you don’t know what the edge computing is, it’s a way to run your code as close to your users as possible through globally distributed edge servers. This results in really low latency and no cold starts. But to stay performant, they have a limited runtime and code size limitations (1 MB on <a href="https://developers.cloudflare.com/workers/platform/limits/#worker-size" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Workers<!--]--></a>).</p>
+<h2 data-hk="0-0-0-0" id="prisma" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#prisma">Prisma</a></h2>
+<p><a href="https://prisma.io" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Prisma<!--]--></a> is an ORM that lets you write your database schema in it’s special <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->.prisma<!--]--></code> syntax.</p>
+<p>It has first-class support for PostgreSQL, MySQL, SQLite, SQL Server, CockroachDB and even MongoDB. Prisma then generates TypeScript types based on the schema, which lets your query your database using the <a href="https://prisma.io/client" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Prisma Client<!--]--></a> in a typesafe manner. It’s fantastic.</p>
+<p><a href="https://prisma.io/migrate" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Prisma Migrate<!--]--></a> is another great tool from the Prisma team to run database migrations without hassle.</p>
+<p>But it also has a lot of problems. The <a href="https://rust-lang.org" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Rust<!--]--></a> based core of Prisma is approximately a 13 MB binary. Which means in serverless environments, the cold start times are awful because it takes a lot of time to spin up the Prisma binary. And you can pretty much forget running Prisma on the edge.</p>
+<h2 data-hk="0-0-0-0" id="planetscale" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#planetscale">PlanetScale</a></h2>
+<p><a href="https://planetscale.com" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->PlanetScale<!--]--></a> is a serverless MySQL database provider which is based on <a href="https://vitess.io" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Vitess<!--]--></a>. You get the scaling benefits of Vitess without the need to manage it yourself.</p>
+<p>The PlanetScale team recently released their <a href="https://github.com/planetscale/database-js" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->database driver<!--]--></a> which lets your query your PlanetScale database using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Fetch API<!--]--></a>. This means you can use this library to query your database in edge environments which is HUGE.</p>
+<p>Although it’s a great library, it doesn’t provide an typesafety.</p>
+<h2 data-hk="0-0-0-0" id="kysely" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#kysely">Kysely</a></h2>
+<p>Enter <a href="https://github.com/koskimas/kysely" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Kysely<!--]--></a>. It’s a typesafe SQL query builder. You give it your schema as a TypeScript type and you can get wonderful typesafety and autocomplete while using the query builder. Take a look at this GIF from the Kysely Readme.</p>
+<p><img src="https://github.com/koskimas/kysely/blob/master/assets/demo.gif?raw=true" alt="Kysely demo"/></p>
+<p>It works in serverless and edge environments, even on <a href="https://deno.land" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Deno<!--]--></a>! It also has support for using the PlanetScale database driver using <a href="https://github.com/depot/kysely-planetscale" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->kysely-planetscale<!--]--></a>. This is perfect.</p>
+<p>The only problem is that defining schemas in TypeScript is rough. It also doesn’t have anything like <a href="https://prisma.io/migrate" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Prisma Migrate<!--]--></a> to manage database migrations.</p>
+<h2 data-hk="0-0-0-0" id="the-idea" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#the-idea">The Idea</a></h2>
+<p>Prisma is good at defining schemas, generating TypeScript types, and handling database migrations.</p>
+<p>Kysely along with the PlanetScale database driver are good for writing SQL in a typesafe manner on the edge.</p>
+<p>What if we combine both of these?</p>
+<h2 data-hk="0-0-0-0" id="implementing-the-idea" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#implementing-the-idea">Implementing the Idea</a></h2>
+<p>Enough talking let’s get to some actual code.</p>
+<h3 data-hk="0-0-0-0" id="setting-up-a-database-on-planetscale" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#setting-up-a-database-on-planetscale">Setting Up a Database on PlanetScale</a></h3>
+<p>First create an account on PlanetScale and create a database. You can just sign in with your GitHub account and you’re good to go.</p>
+<h3 data-hk="0-0-0-0" id="setting-up-prisma" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#setting-up-prisma">Setting Up Prisma</a></h3>
+<p>I’ll be using the newly released <a href="https://start.solidjs.com" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->SolidStart<!--]--></a> but this should work in all frameworks that support edge environments such as <a href="https://nextjs.org" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Next.js<!--]--></a>, <a href="https://remix.run" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Remix<!--]--></a>, <a href="https://kit.svelte.dev/" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->SvelteKit<!--]--></a>, etc.</p>
+<p>Install Prisma and the Prisma Client.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#FFC799">npm</span><span style="color:#FFF"> </span><span style="color:#99FFE4">install</span><span style="color:#FFF"> </span><span style="color:#99FFE4">-D</span><span style="color:#FFF"> </span><span style="color:#99FFE4">prisma</span><span style="color:#FFF"> &amp;&amp; </span><span style="color:#FFC799">npm</span><span style="color:#FFF"> </span><span style="color:#99FFE4">install</span><span style="color:#FFF"> </span><span style="color:#99FFE4">@prisma/client</span></span><!--]--></code></pre>
+<p>Now generate a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->.env<!--]--></code> file and a starter schema using <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma init<!--]--></code>.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#FFC799">npx</span><span style="color:#FFF"> </span><span style="color:#99FFE4">prisma</span><span style="color:#FFF"> </span><span style="color:#99FFE4">init</span><span style="color:#FFF"> </span><span style="color:#99FFE4">--datasouce-provider</span><span style="color:#FFF"> </span><span style="color:#99FFE4">mysql</span></span><!--]--></code></pre>
+<p>This command will create a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->schema.prisma<!--]--></code> file inside a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma<!--]--></code> folder. It will also create a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->.env<!--]--></code> file. Add your connection string from PlanetScale in the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->DATABASE_URL<!--]--></code> variable.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// prisma/schema.prisma</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">generator</span><span style="color:#FFF"> </span><span style="color:#FFC799">client</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;prisma-client-js&quot;</span></span>
+<span class="line"><span style="color:#FFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">datasource</span><span style="color:#FFF"> </span><span style="color:#FFC799">db</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;mysql&quot;</span></span>
+<span class="line"><span style="color:#FFF">  url      </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#FFC799">env</span><span style="color:#A0A0A0">(</span><span style="color:#99FFE4">&quot;DATABASE_URL&quot;</span><span style="color:#A0A0A0">)</span></span>
+<span class="line"><span style="color:#FFF">}</span></span><!--]--></code></pre>
+<p>Since PlanetScale, rather <a href="https://vitess.io/blog/2021-06-15-online-ddl-why-no-fk/" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Vitess doesn’t support foreign key constraints<!--]--></a>, we need to set the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->referentialIntegrity<!--]--></code> property in prisma.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// prisma/schema.prisma</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">generator</span><span style="color:#FFF"> </span><span style="color:#FFC799">client</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider        </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;prisma-client-js&quot;</span></span>
+<span class="line"><span style="color:#FFF">  previewFeatures </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> [</span><span style="color:#99FFE4">&quot;referentialIntegrity&quot;</span><span style="color:#FFF">]</span></span>
+<span class="line"><span style="color:#FFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">datasource</span><span style="color:#FFF"> </span><span style="color:#FFC799">db</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider     </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;mysql&quot;</span></span>
+<span class="line"><span style="color:#FFF">  url          </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#FFC799">env</span><span style="color:#A0A0A0">(</span><span style="color:#99FFE4">&quot;DATABASE_URL&quot;</span><span style="color:#A0A0A0">)</span></span>
+<span class="line"><span style="color:#FFF">  relationMode </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;prisma&quot;</span></span>
+<span class="line"><span style="color:#FFF">}</span></span><!--]--></code></pre>
+<p>Now make an <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Example<!--]--></code> model. Models in Prisma represent the tables in a SQL database.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// prisma/schema.prisma</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">generator</span><span style="color:#FFF"> </span><span style="color:#FFC799">client</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider        </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;prisma-client-js&quot;</span></span>
+<span class="line"><span style="color:#FFF">  previewFeatures </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> [</span><span style="color:#99FFE4">&quot;referentialIntegrity&quot;</span><span style="color:#FFF">]</span></span>
+<span class="line"><span style="color:#FFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">datasource</span><span style="color:#FFF"> </span><span style="color:#FFC799">db</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  provider     </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;mysql&quot;</span></span>
+<span class="line"><span style="color:#FFF">  url          </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#FFC799">env</span><span style="color:#A0A0A0">(</span><span style="color:#99FFE4">&quot;DATABASE_URL&quot;</span><span style="color:#A0A0A0">)</span></span>
+<span class="line"><span style="color:#FFF">  relationMode </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;prisma&quot;</span></span>
+<span class="line"><span style="color:#FFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">model</span><span style="color:#FFF"> </span><span style="color:#FFC799">Example</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">{</span></span>
+<span class="line"><span style="color:#FFF">  id         </span><span style="color:#FFC799">String</span><span style="color:#FFF">    </span><span style="color:#FFC799">@id</span><span style="color:#FFF"> </span><span style="color:#FFC799">@default</span><span style="color:#A0A0A0">(</span><span style="color:#FFC799">cuid</span><span style="color:#A0A0A0">())</span></span>
+<span class="line"><span style="color:#FFF">  createdAt  </span><span style="color:#FFC799">DateTime</span><span style="color:#FFF">  </span><span style="color:#FFC799">@default</span><span style="color:#A0A0A0">(</span><span style="color:#FFC799">now</span><span style="color:#A0A0A0">())</span></span>
+<span class="line"><span style="color:#FFF">  updatedAt  </span><span style="color:#FFC799">DateTime</span><span style="color:#FFF">  </span><span style="color:#FFC799">@updatedAt</span></span>
+<span class="line"><span style="color:#FFF">  text       </span><span style="color:#FFC799">String</span></span>
+<span class="line"><span style="color:#A0A0A0">}</span></span><!--]--></code></pre>
+<p>Push this schema to PlanetScale using <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma db push<!--]--></code>.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#FFC799">npx</span><span style="color:#FFF"> </span><span style="color:#99FFE4">prisma</span><span style="color:#FFF"> </span><span style="color:#99FFE4">db</span><span style="color:#FFF"> </span><span style="color:#99FFE4">push</span></span><!--]--></code></pre>
+<p>This command will also run <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma generate<!--]--></code> which generates the TypeScript types based on your schema. It is also recommended to add <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma generate<!--]--></code> as a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->postinstall<!--]--></code> in <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->package.json<!--]--></code> so that whenever you install the dependencies, it will generate the types for you.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// package.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#99FFE4">&quot;scripts&quot;</span><span style="color:#FFF">: {</span></span>
+<span class="line"><span style="color:#FFF">    </span><span style="color:#FFC799">&quot;postinstall&quot;</span><span style="color:#FFF">: </span><span style="color:#99FFE4">&quot;prisma generate&quot;</span></span>
+<span class="line"><span style="color:#FFF">}</span></span><!--]--></code></pre>
+<p>That is it for the Prisma setup.</p>
+<h3 data-hk="0-0-0-0" id="setting-up-kysely" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#setting-up-kysely">Setting Up Kysely</a></h3>
+<p>Make sure you add the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->DATABASE_USERNAME<!--]--></code> and <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->DATABASE_PASSWORD<!--]--></code> environment variables from PlanetScale.</p>
+<p>Install Kysely, the Kysely PlanetScale Dialect, and the PlanetScale databse driver.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#FFC799">npm</span><span style="color:#FFF"> </span><span style="color:#99FFE4">install</span><span style="color:#FFF"> </span><span style="color:#99FFE4">kysely</span><span style="color:#FFF"> </span><span style="color:#99FFE4">kysely-planetscale</span><span style="color:#FFF"> </span><span style="color:#99FFE4">@planetscale/database</span></span><!--]--></code></pre>
+<p>Create a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->src/server/db.ts<!--]--></code> or whatever file makes sense to you and add the following code.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// src/server/db.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">import</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">type</span><span style="color:#FFF"> { Example } </span><span style="color:#A0A0A0">from</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;@prisma/client/edge&quot;</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#A0A0A0">import</span><span style="color:#FFF"> { Kysely } </span><span style="color:#A0A0A0">from</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;kysely&quot;</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#A0A0A0">import</span><span style="color:#FFF"> { PlanetScaleDialect } </span><span style="color:#A0A0A0">from</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;kysely-planetscale&quot;</span><span style="color:#FFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">interface</span><span style="color:#FFF"> </span><span style="color:#FFC799">Database</span><span style="color:#FFF"> {</span></span>
+<span class="line"><span style="color:#FFF">  Example</span><span style="color:#A0A0A0">:</span><span style="color:#FFF"> </span><span style="color:#FFC799">Example</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">export</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">const</span><span style="color:#FFF"> db </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">new</span><span style="color:#FFF"> </span><span style="color:#FFC799">Kysely</span><span style="color:#FFF">&lt;</span><span style="color:#FFC799">Database</span><span style="color:#FFF">&gt;({</span></span>
+<span class="line"><span style="color:#FFF">  dialect: </span><span style="color:#A0A0A0">new</span><span style="color:#FFF"> </span><span style="color:#FFC799">PlanetScaleDialect</span><span style="color:#FFF">({</span></span>
+<span class="line"><span style="color:#FFF">    host: </span><span style="color:#99FFE4">&quot;aws.connect.psdb.cloud&quot;</span><span style="color:#FFF">,</span></span>
+<span class="line"><span style="color:#FFF">    username: process.env.DATABASE_USERNAME,</span></span>
+<span class="line"><span style="color:#FFF">    password: process.env.DATABASE_PASSWORD,</span></span>
+<span class="line"><span style="color:#FFF">  }),</span></span>
+<span class="line"><span style="color:#FFF">});</span></span><!--]--></code></pre>
+<p>Here we’re importing the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Example<!--]--></code> type that we had defined in our schema. If you go to definition of that type, you will see that that type has all the fields we had defined in our schema correctly typed.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#A0A0A0">export</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">type</span><span style="color:#FFF"> </span><span style="color:#FFC799">Example</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> {</span></span>
+<span class="line"><span style="color:#FFF">  id</span><span style="color:#A0A0A0">:</span><span style="color:#FFF"> </span><span style="color:#FFC799">string</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">  createdAt</span><span style="color:#A0A0A0">:</span><span style="color:#FFF"> </span><span style="color:#FFC799">Date</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">  updatedAt</span><span style="color:#A0A0A0">:</span><span style="color:#FFF"> </span><span style="color:#FFC799">Date</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">  text</span><span style="color:#A0A0A0">:</span><span style="color:#FFF"> </span><span style="color:#FFC799">string</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">};</span></span><!--]--></code></pre>
+<p>The <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Database<!--]--></code> interface will contain all our types. So let’s say we also have a <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->SecondExample<!--]--></code> field in our database, we will have to import that type and add it in the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Database<!--]--></code> interface. This is one of the limitations of this approach, it requires you to add new types manually.</p>
+<p>Then we’re exporting a Kysely instance that takes the <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Database<!--]--></code> interface as a generic. The <code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->PlanetScaleDialect<!--]--></code> tells Kysely to use the PlanetScale database driver to run the SQL queries.</p>
+<h3 data-hk="0-0-0-0" id="using-kysely" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#using-kysely">Using Kysely</a></h3>
+<p>Note: This might look different in your framework but the Kysely code will be the same.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// src/routes/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">import</span><span style="color:#FFF"> { db } </span><span style="color:#A0A0A0">from</span><span style="color:#FFF"> </span><span style="color:#99FFE4">&quot;~/server/db&quot;</span><span style="color:#FFF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">export</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">const</span><span style="color:#FFF"> </span><span style="color:#FFC799">routeData</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> () </span><span style="color:#A0A0A0">=&gt;</span><span style="color:#FFF"> {</span></span>
+<span class="line"><span style="color:#FFF">  </span><span style="color:#A0A0A0">return</span><span style="color:#FFF"> </span><span style="color:#FFC799">createServerData$</span><span style="color:#FFF">(</span><span style="color:#A0A0A0">async</span><span style="color:#FFF"> () </span><span style="color:#A0A0A0">=&gt;</span><span style="color:#FFF"> {</span></span>
+<span class="line"><span style="color:#FFF">    </span><span style="color:#A0A0A0">const</span><span style="color:#FFF"> examples </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">await</span><span style="color:#FFF"> db</span></span>
+<span class="line"><span style="color:#FFF">      .</span><span style="color:#FFC799">selectFrom</span><span style="color:#FFF">(</span><span style="color:#99FFE4">&quot;Example&quot;</span><span style="color:#FFF">)</span></span>
+<span class="line"><span style="color:#FFF">      .</span><span style="color:#FFC799">selectAll</span><span style="color:#FFF">()</span></span>
+<span class="line"><span style="color:#FFF">      .</span><span style="color:#FFC799">orderBy</span><span style="color:#FFF">(</span><span style="color:#99FFE4">&quot;createdAt&quot;</span><span style="color:#FFF">, </span><span style="color:#99FFE4">&quot;desc&quot;</span><span style="color:#FFF">)</span></span>
+<span class="line"><span style="color:#FFF">      .</span><span style="color:#FFC799">execute</span><span style="color:#FFF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFF">    console.</span><span style="color:#FFC799">log</span><span style="color:#FFF">(examples);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFF">    </span><span style="color:#A0A0A0">return</span><span style="color:#FFF"> examples;</span></span>
+<span class="line"><span style="color:#FFF">  });</span></span>
+<span class="line"><span style="color:#FFF">};</span></span><!--]--></code></pre>
+<p>You will notice which typing this is that it’s all beautifully autocompleted for you. Everything is fully typesafe.</p>
+<p>SolidStart also has end-to-end typesafety, so even in the UI code, the typesafety is maintained. This is similar to Remix patterns. I’m also using <a href="https://github.com/unocss/unocss" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->UnoCSS<!--]--></a> in this example.</p>
+<pre class="astro-code Vesper" style="background-color:#101010;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0"><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[--><span class="line"><span style="color:#8B8B8B94">// src/routes/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A0A0A0">export</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">default</span><span style="color:#FFF"> </span><span style="color:#A0A0A0">function</span><span style="color:#FFF"> </span><span style="color:#FFC799">Home</span><span style="color:#FFF">() {</span></span>
+<span class="line"><span style="color:#FFF">  </span><span style="color:#A0A0A0">const</span><span style="color:#FFF"> examples </span><span style="color:#A0A0A0">=</span><span style="color:#FFF"> </span><span style="color:#FFC799">useRouteData</span><span style="color:#FFF">&lt;</span><span style="color:#A0A0A0">typeof</span><span style="color:#FFF"> routeData&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFF">  </span><span style="color:#A0A0A0">return</span><span style="color:#FFF"> (</span></span>
+<span class="line"><span style="color:#FFF">    </span><span style="color:#A0A0A0">&lt;</span><span style="color:#FFF">main class</span><span style="color:#A0A0A0">=</span><span style="color:#99FFE4">&quot;flex flex-col items-center h-screen bg-#050505 font-sans&quot;</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">      </span><span style="color:#A0A0A0">&lt;</span><span style="color:#FFF">div class</span><span style="color:#A0A0A0">=</span><span style="color:#99FFE4">&quot;flex flex-col gap-y-2&quot;</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">        </span><span style="color:#A0A0A0">&lt;</span><span style="color:#FFF">For each</span><span style="color:#A0A0A0">=</span><span style="color:#FFF">{</span><span style="color:#FFC799">examples</span><span style="color:#FFF">()}</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">          {(example) </span><span style="color:#A0A0A0">=&gt;</span><span style="color:#FFF"> {</span></span>
+<span class="line"><span style="color:#FFF">            return &lt;p class</span><span style="color:#A0A0A0">=</span><span style="color:#99FFE4">&quot;text-white&quot;</span><span style="color:#A0A0A0">&gt;</span><span style="color:#FFF">{example.text}</span><span style="color:#A0A0A0">&lt;/</span><span style="color:#FFF">p</span><span style="color:#A0A0A0">&gt;</span><span style="color:#FFF">;</span></span>
+<span class="line"><span style="color:#FFF">          }}</span></span>
+<span class="line"><span style="color:#FFF">        </span><span style="color:#A0A0A0">&lt;/</span><span style="color:#FFF">For</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">      </span><span style="color:#A0A0A0">&lt;/</span><span style="color:#FFF">div</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">    </span><span style="color:#A0A0A0">&lt;/</span><span style="color:#FFF">main</span><span style="color:#A0A0A0">&gt;</span></span>
+<span class="line"><span style="color:#FFF">  );</span></span>
+<span class="line"><span style="color:#FFF">}</span></span><!--]--></code></pre>
+<p>You will notice that we didn’t have to write any types ourselves for this. Everything is typesafe and we didn’t even write any TypeScript. It’s all inferred.</p>
+<h3 data-hk="0-0-0-0" id="limitations" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#limitations">Limitations</a></h3>
+<p>This way of doing things can break when using <a href="https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#map" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[--><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->@map<!--]--></code><!--]--></a> because the casing is different in the types. It also doesn’t support <a href="https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields#working-with-decimal" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[--><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->Prisma.Decimal<!--]--></code><!--]--></a> because you have to use the special Prisma object to use it. <a href="https://github.com/marklawlor" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Mark Lawlor<!--]--></a> has some insane TypeScript code to work around this problem but it’s still very “hacky”. You can see his gist <a href="https://gist.github.com/marklawlor/b1c26eefba43539c6611a508e67ee02f" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->here<!--]--></a>.</p>
+<p>Update: A wonderful package called <a href="https://github.com/valtyr/prisma-kysely" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[--><code class="[letter-spacing:-0.02em] rounded text-sm after:font-black after:text-gray-400 after:dark:text-gray-600 before:font-black before:text-gray-400 before:dark:text-gray-600"><!--[-->prisma-kysely<!--]--></code><!--]--></a> created by <a href="https://valtyr.is/" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->Valtýr<!--]--></a> does all of this for you. You should probably use it instead of the approach I’ve shown here.</p>
+<h2 data-hk="0-0-0-0" id="conclusion" ><a data-hk="0-0-0-1-0" href="typesafe-database.html#conclusion">Conclusion</a></h2>
+<p>Hopefully that all made sense. I think it is pretty cool. That’s it really. Thanks for reading!</p>
+    </div>
+
+
+      <div style="opacity:0.3;background:url(../_astro/grain.16484c4c.svg)" class="pointer-events-none absolute inset-0 select-none mix-blend-difference">
+</div>
+
+      <div class="mt-24"></div>
+      <div class="prose">
+  <hr>
+
+  <footer class="flex justify-between">
+    <span>Shoubhit Dash</span>
+
+    <div class="flex gap-4">
+      <a href="../rss.xml" target="_self" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->
+        <div class="i-mdi:rss" title="RSS"></div>
+      <!--]--></a>
+
+      <a href="../sitemap-index.xml" target="_self" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->
+        <div class="i-mdi:sitemap" title="Sitemap"></div>
+      <!--]--></a>
+
+      <a href="mailto:shoubhit2005@gmail.com" target="_self" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->
+        <div class="i-tabler:mail-filled" title="Email"></div>
+      <!--]--></a>
+
+      <a href="https://github.com/nexxeln" target="_blank" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->
+        <div class="i-radix-icons:github-logo" title="GitHub"></div>
+      <!--]--></a>
+    </div>
+  </footer>
+</div>
+    </div>
+  <script>
+const theme = (() => {
+  if (typeof localStorage !== "undefined" && localStorage.getItem("theme"))
+    return localStorage.getItem("theme")
+
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+    return "dark"
+  else return "light"
+})()
+
+if (theme === "light")
+  document.documentElement.classList.remove("dark")
+else document.documentElement.classList.add("dark")
+
+window.localStorage.setItem("theme", theme)
+</script>
+
+</body></html>
