@@ -240,36 +240,7 @@
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } } k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(89833561, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script> <noscript> <div><img src="https://mc.yandex.ru/watch/89833561" style="position:absolute; left:-9999px;" alt="" /></div> </noscript> 
 
-  <script>const getUserLanguage = () => {
-    // Проверка наличия настроек языка пользователя в localStorage
-    if (localStorage.getItem('lang')) {
-      return localStorage.getItem('lang');
-    } else {
-      // Если настроек языка нет, возвращаем язык браузера по умолчанию
-      return navigator.language.split('-')[0];
-    }
-  }
   
-  // Выбор текущего языка
-  const currentLanguage = getUserLanguage();
-  
-  // Загрузка локализации из файла на текущем языке
-  fetch(`./localizations/${currentLanguage}.json`)
-    .then(response => response.json())
-    .then(localizations => {
-      // Функция перевода текста на текущий язык
-      const translate = (key) => {
-        // Проверка наличия перевода в локализации
-        if (localizations.hasOwnProperty(key)) {
-          return localizations[key];
-        } else {
-          // Возвращение ключа, если перевод не найден
-          return key;
-        }
-      }
-    })
-    .catch(error => console.error(`Failed to load localizations: ${error}`));
-</script>
 </head>
 
 <body>
@@ -278,19 +249,19 @@
     <article class="nx-container nx-prose-sm dark:nx-prose-dark md:nx-prose" dir="ltr">
        <h1>Dithora</h1>
        <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
-         <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3"><span class="nx-cursor-default nx-text-gray-400">RU</span><a href="en">EN</a><a href="ua">UA</a><a href="cn">CN</a></div>
+        <!-- <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3"><span class="nx-cursor-default nx-text-gray-400">RU</span><a href="en">EN</a><a href="ua">UA</a><a href="cn">CN</a></div> -->
           <span role="button" aria-label="Toggle Dark Mode" class="nx-cursor-pointer nx-p-2 nx-text-current" tabindex="0">
              <svg fill="none" viewBox="3 3 18 18" width="12" height="12" stroke="currentColor">
 
              </svg>
           </span>
        </div>
-       <p>Привет, я фронтенд разрботчик. Верстаю сайты.</p>
-       <p>Мои навыки включают:<br>- Разработкy веб-сайтов с использованием HTML, CSS и JavaScript,<br>- Опыт работы с фреймворком Vue,<br>- Создание адаптивных сайтов, которые отображаются корректно на всех устройствах,<br>- Оптимизацию сайтов для максимальной скорости загрузки.</p>
+       <p></p>
+       <p></p>
        <footer>
           <hr/>
           <section class="legends">
-             <nav><a href="https://discordapp.com/users/580681990240469013" target="_blank" rel="noreferrer">Discord</a><span> · </span><a href="https://github.com/dithora" target="_blank" rel="noreferrer">GitHub</a><span> · </span><a href="credits" target="_blank" rel="noreferrer">Credits</a></nav>
+             <nav><a href="https://discordapp.com/users/580681990240469013" target="_blank" rel="noreferrer">Discord</a><span> · </span><a href="https://github.com/dithora" target="_blank" rel="noreferrer">GitHub</a></nav>
              <aside></aside>
           </section>
           
