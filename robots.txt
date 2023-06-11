@@ -4,6 +4,4 @@ Disallow: /404
 Disallow: /en
 Disallow: /ua
 Disallow: /cn
-Disallow: /log
-Disallow: /credits
 Sitemap: https://dark-soul.space/sitemap.xml
