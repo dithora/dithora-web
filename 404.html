@@ -1,62 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-   <!-- global metadata -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width,initial-scale=1">
-   <link rel="icon" href="pub/favicon.ico">
 
-   <!-- primary meta tags -->
-   <title>dithora</title>
-   <meta name="title" content="dithora">
-   <meta name="description" content="Ошибка 404">
+<head>
+  <!-- global metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="pub/favicon.ico">
 
-   <!-- open graph -->
-   <meta property="og:type" content="website">
-   <meta property="og:site_name" content="dithora">
-   <meta property="og:url" content="https://dithora.xyz">
-   <meta property="og:title" content="dithora">
-   <meta property="og:description" content="Ошибка 404">
+  <!-- primary meta tags -->
+  <title>dithora</title>
+  <meta name="title" content="dithora">
+  <meta name="description" content="Ошибка 404">
 
-   <!-- link tags -->
-   <link rel="sitemap" href="sitemap.xml">
-   <link rel="preload" href="fonts/Comfortaa-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-   <link rel="stylesheet" href="_astro/main.b68b4b81.css"/>
+  <!-- open graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="dithora">
+  <meta property="og:url" content="https://dithora.xyz">
+  <meta property="og:title" content="dithora">
+  <meta property="og:description" content="Ошибка 404">
+
+  <!-- link tags -->
+  <link rel="sitemap" href="sitemap.xml">
+  <link rel="preload" href="fonts/Comfortaa-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="_astro/main.b68b4b81.css" />
 </head>
 
-  <body>
-    <div class="mx-auto max-w-container px-4">
+<body>
+  <div class="mx-auto max-w-container px-4">
+    <header class="h-37.5px flex items-center justify-between -mt-2">
 
-      <header class="h-37.5px flex items-center justify-between -mt-2">
-        
-          <a href="/" target="_self" class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->← на главную<!--]--></a>
-        
-      </header>
+      <a href="/" target="_self"
+        class="underline decoration-neutral-300 underline-offset-4 transition-colors dark:decoration-neutral-600 focus:decoration-neutral-400 focus:outline-offset-6 focus:dark:decoration-neutral-500 hover:decoration-neutral-400 hover:dark:decoration-neutral-500"><!--[-->←
+        на главную<!--]--></a>
 
-      
-  <div class="h-[calc(100vh-100px)] flex flex-col items-center justify-center text-center">
-    <h1 class="text-5xl font-black">Ошибка 404</h1>
-    <p class="text-4xl font-extrabold">Вот ты криворукий, даже адрес не можешь правильно указать.</p>
-  </div>
+    </header>
 
-</div>
+
+    <div class="h-[calc(100vh-100px)] flex flex-col items-center justify-center text-center">
+      <h1 class="text-5xl font-black">Ошибка 404</h1>
+      <p class="text-4xl font-extrabold">Вот ты криворукий, даже адрес не можешь правильно указать.</p>
     </div>
+
+  </div>
+  </div>
   <script>
-const theme = (() => {
-  if (typeof localStorage !== "undefined" && localStorage.getItem("theme"))
-    return localStorage.getItem("theme")
+    const theme = (() => {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme"))
+        return localStorage.getItem("theme")
 
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-    return "dark"
-  else return "light"
-})()
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+        return "dark"
+      else return "light"
+    })()
 
-if (theme === "light")
-  document.documentElement.classList.remove("dark")
-else document.documentElement.classList.add("dark")
+    if (theme === "light")
+      document.documentElement.classList.remove("dark")
+    else document.documentElement.classList.add("dark")
 
-window.localStorage.setItem("theme", theme)
-</script>
+    window.localStorage.setItem("theme", theme)
+  </script>
 
-</body></html>
+</body>
+
+</html>
