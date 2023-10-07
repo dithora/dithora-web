@@ -820,6 +820,38 @@ video {
     font-style: normal
 }
 
+@font-face {
+    font-family: EldenR;
+    src: url(../fonts/EldenRing-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: AtomicH;
+    src: url(../fonts/AtomicHeart-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MetroE;
+    src: url(../fonts/MetroExodus-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: DeathS;
+    src: url(../fonts/DeathStranding-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
 body,
 html {
     overflow-x: hidden
