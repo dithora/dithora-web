@@ -524,7 +524,13 @@ video {
 }
 
 .justify-between {
-    justify-content: space-between
+    justify-content: space-between;
+    margin-top: -30px;
+}
+
+.justify-betweenn {
+    justify-content: space-between;
+    margin-top: 400px;
 }
 
 .gap-16 {
@@ -987,8 +993,11 @@ pre {
     & hr {
         border-bottom-width: 1px;
         --un-border-opacity: 1;
-        border-color: rgba(212, 212, 212, var(--un-border-opacity))
+        border-color: rgba(212, 212, 212, var(--un-border-opacity));
+        margin-top: 300px
     }
+
+
 
     .dark & hr {
         --un-border-opacity: 1;
