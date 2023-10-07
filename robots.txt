@@ -1,7 +1,4 @@
 # See: https://yandex.ru/support/webmaster/controlling-robot/robots-txt.html
 User-agent: *
 Disallow: /404
-Disallow: /en
-Disallow: /ua
-Disallow: /cn
 Sitemap: https://dark-soul.space/sitemap.xml

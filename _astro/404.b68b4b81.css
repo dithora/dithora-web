@@ -784,7 +784,7 @@ video {
 
 @font-face {
     font-family: Switzer;
-    src: url(../fonts/Switzer.woff2) format("woff2");
+    src: url(../fonts/Comfortaa-Regular.woff2) format("woff2");
     font-weight: 300 900;
     font-style: normal;
     font-display: swap
@@ -803,7 +803,15 @@ video {
 
 @font-face {
     font-family: Hack;
-    src: url(../fonts/Hack.woff2) format("woff2");
+    src: url(../fonts/Comfortaa-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Cyberpunk;
+    src: url(../fonts/Cyberpunk-Regular.woff2) format("woff2");
     font-weight: 400;
     font-display: swap;
     font-style: normal
