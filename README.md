@@ -11,8 +11,8 @@ Make sure you have [git](https://git-scm.com/) installed.
 - Clone the repo:
 
   ```bash
-  $ git clone https://github.com/darksoul228/darksoul-profilesite.git
+  $ git clone https://github.com/dithora/dithora-web.git
   ```
-If you don't have Git installed or you don't like using the terminal then you can download the [zip](https://github.com/darksouldf/darksoul-profilesite/archive/refs/heads/main.zip) and extract that and open the extracted folder in the code editor of your your choice.
+If you don't have Git installed or you don't like using the terminal then you can download the [zip](https://github.com/dithora/dithora-web/archive/refs/heads/main.zip) and extract that and open the extracted folder in the code editor of your your choice.
 ## Hosting 
 Site deployed on [Netlify](https://www.netlify.com)
