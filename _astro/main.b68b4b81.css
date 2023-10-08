@@ -694,14 +694,13 @@ video {
 
 .dark .dark\:text-neutral-500 {
     --un-text-opacity: 1;
-    color: rgba(115, 115, 115, var(--un-text-opacity));
+    margin-top: 50px
 }
 
 .text-neutral-600 {
     --un-text-opacity: 1;
-    color: rgba(82, 82, 82, var(--un-text-opacity));
     margin-top: -4.2px;
-    margin-right: -15px;
+    margin-right: -15px
 }
 
 .text-white {
